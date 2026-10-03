@@ -4,6 +4,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Album } from '@/lib/gallery-schema';
 import { moveSelection, type GallerySelection } from '@/lib/gallery-navigation';
 import { PAGE_SIZE } from '@/lib/gallery-view';
+import { siteConfig } from '../../config';
 import { GalleryCard } from './gallery-card';
 import { Lightbox } from './lightbox';
 
@@ -63,7 +64,7 @@ export function GalleryWall({ initialAlbums, total, title, intro, kind, term, pa
   const hasMore = nextPage <= Math.ceil(total / PAGE_SIZE);
   const fallbackHref = `${fallbackBase}${fallbackBase.includes('?') ? '&' : '?'}page=${nextPage}`;
   return <section className="gallery-section" aria-labelledby="gallery-title">
-    <div className="gallery-heading"><div><p className="eyebrow">lumolog collection</p><h1 id="gallery-title">{title}</h1>{intro && <p>{intro}</p>}</div><span className="gallery-count">{total} 组作品</span></div>
+    <div className="gallery-heading"><div><p className="eyebrow">{siteConfig.collectionEyebrow}</p><h1 id="gallery-title">{title}</h1>{intro && <p>{intro}</p>}</div><span className="gallery-count">{total} 组作品</span></div>
     {albums.length ? <div className="gallery-grid">{albums.map((album, index) => <GalleryCard key={album.id} album={album} index={index} onOpen={source => { openedFrom.current = source; setSelection({ albumIndex: index, photoIndex: 0 }); }} />)}</div> : <p className="empty-state">这里还没有作品。</p>}
     {hasMore && <div className="gallery-load-more" ref={sentinel}>
       {loading && <span className="gallery-load-status" role="status">正在加载更多作品…</span>}

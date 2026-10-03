@@ -1,14 +1,15 @@
 import type { Metadata } from 'next';
+import { siteConfig } from '../../config';
 import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || 'http://localhost:3000'),
-  title: { default: 'lumolog', template: '%s · lumolog' },
-  description: '以照片记录路途、城市与自然。',
+  title: { default: siteConfig.name, template: `%s · ${siteConfig.name}` },
+  description: siteConfig.description,
   openGraph: {
-    title: 'lumolog',
-    description: '以照片记录路途、城市与自然。',
-    images: [{ url: '/images/opengraph.jpg', alt: 'lumolog：蓝色时刻的海岸与灯塔' }],
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [{ url: '/images/opengraph.jpg', alt: `${siteConfig.name}：蓝色时刻的海岸与灯塔` }],
   },
   icons: { icon: '/images/lumolog-mark.svg' },
 };

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { termUrl } from '@/lib/gallery-view';
+import { siteConfig } from '../../config';
 
 export function SiteHeader({ categories }: { categories: string[] }) {
   const pathname = usePathname();
@@ -43,8 +44,8 @@ export function SiteHeader({ categories }: { categories: string[] }) {
 
   return <header className="site-bar">
     <div className="brand">
-      <Link className="brand-logo" href="/" aria-label="lumolog 首页"><img src="/images/lumolog-mark.svg" alt="" width="36" height="36" /></Link>
-      <span className="brand-copy"><span className="brand-heading"><Link className="brand-title" href="/"><strong>lumolog</strong></Link><small className="brand-tagline">将光留在时间里</small></span><small className="brand-copyright">© 2025 - {new Date().getFullYear()} By lumolog</small></span>
+      <Link className="brand-logo" href="/" aria-label={`${siteConfig.name} 首页`}><img src="/images/lumolog-mark.svg" alt="" width="36" height="36" /></Link>
+      <span className="brand-copy"><span className="brand-heading"><Link className="brand-title" href="/"><strong>{siteConfig.name}</strong></Link><small className="brand-tagline">{siteConfig.tagline}</small></span><small className="brand-copyright">© {siteConfig.copyrightStartYear} - {new Date().getFullYear()} By {siteConfig.copyrightHolder}</small></span>
     </div>
     <nav className="site-nav" aria-label="主导航">
       <div className="nav-dropdown" onMouseEnter={() => { if (matchMedia('(hover: hover)').matches) setOpen(true); }} onMouseLeave={() => { if (matchMedia('(hover: hover)').matches) setOpen(false); }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }}>
