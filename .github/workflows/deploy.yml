@@ -37,10 +37,14 @@ jobs:
         run: npm run build
 
       - name: Deploy to EdgeOne Makers (auto-creates project if missing)
+        # -a overseas = 全球可用区（不含中国大陆，无需备案）
+        # 注意：Area 在项目创建时固定。若 kemiao-gallery 已存在且非该区域，
+        # 需先在 EdgeOne Makers 控制台修改加速区域，或删除项目后重跑本工作流。
         run: |
           npx edgeone makers deploy \
             -n kemiao-gallery \
             -t "$EDGEONE_API_TOKEN" \
+            -a overseas \
             --json
         env:
           EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
