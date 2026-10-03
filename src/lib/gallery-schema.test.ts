@@ -6,14 +6,15 @@ import { remoteImageOrigins } from './image-origins';
 afterEach(() => vi.unstubAllEnvs());
 
 describe('gallery data contract', () => {
-  it('accepts the migrated local gallery', () => {
+  it('accepts the local gallery template', () => {
     const gallery = gallerySchema.parse(sample);
-    expect(gallery.albums).toHaveLength(13);
-    expect(gallery.albums.reduce((sum, album) => sum + album.photos.length, 0)).toBe(14);
+    expect(gallery.albums.length).toBeGreaterThan(0);
+    expect(gallery.albums.every(album => album.photos.length > 0)).toBe(true);
   });
 
   it('rejects duplicate IDs and incomplete map coordinates', () => {
     const duplicate = structuredClone(sample);
+    duplicate.albums.push(structuredClone(sample.albums[0]));
     duplicate.albums[1].id = duplicate.albums[0].id;
     expect(gallerySchema.safeParse(duplicate).success).toBe(false);
 

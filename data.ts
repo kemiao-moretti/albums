@@ -1,375 +1,257 @@
 import type { Gallery } from './src/lib/gallery-schema';
 
+// 默认示例数据：复制此结构即可添加自己的作品。
 const data: Gallery = {
-  "version": 1,
-  "albums": [
+  version: 1,
+  albums: [
     {
-      "title": "雪落在山间车站",
-      "date": "2026-09-25",
-      "description": "薄雪盖住站台，灯已经亮了。",
+      id: 'cityscape',
+      title: '城市风光',
+      date: '2026-10-02',
+      description: '壁纸1。',
+      categories: ['电脑壁纸'],
+      tags: ['动漫', '电脑壁纸'],
+      location: '哲风壁纸',
+      photos: [
+        {
+          id: '202610021',
+          src: '/images/pc-2ciyuan/1-piclite.jpg',
+          thumb: '/images/pc-2ciyuan/1-piclite.jpg',
+          alt: '城市风格',
+          caption: '城市风光',
+          credit: {
+            name: '哲风壁纸',
+          },
+          },
+          ],      
+      },
+          {
+      "title": "雪域中的人",
+      "date": "2026-10-02",
+      "description": "雪域中的人",
       "categories": [
-        "旅行日记"
+        "电脑壁纸"
       ],
       "tags": [
-        "山野",
-        "冬日"
+        "雪景",
+        "人物"
       ],
-      "location": "山间车站",
-      "id": "snow-platform",
+      "location": "雪景",
+      "id": "snowtown",
       "photos": [
         {
-          "alt": "空旷的雪中铁路站台、木棚与远山",
-          "caption": "薄雪盖住站台，灯已经亮了。",
-          "id": "snow-platform-1",
-          "src": "/images/demo/snow-platform-1.webp",
-          "thumb": "/images/demo/snow-platform-1-thumb.webp",
+          "alt": "雪域中的人",
+          "caption": "雪域中的人。",
+          "id": "snowtown-1",
+          "src": "/images/pc-2ciyuan/2-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/2-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "石阶尽头的黄昏",
-      "date": "2026-09-24",
-      "description": "沿着老城石阶，走进傍晚的光里。",
+      },
+          {
+      "title": "绿地",
+      "date": "2026-10-02",
+      "description": "绿地",
       "categories": [
-        "旅行日记"
+        "电脑壁纸"
       ],
       "tags": [
-        "古城",
-        "黄昏"
+        "绿地",
       ],
-      "location": "山城",
-      "id": "hilltown",
+      "location": "绿地",
+      "id": "greenfield",
       "photos": [
         {
-          "alt": "夕阳下的古老石阶、石墙与柏树",
-          "caption": "沿着老城石阶，走进傍晚的光里。",
-          "id": "hilltown-1",
-          "src": "/images/demo/hilltown-1.webp",
-          "thumb": "/images/demo/hilltown-1-thumb.webp",
+          "alt": "绿地",
+          "caption": "绿地。",
+          "id": "greenfield-1",
+          "src": "/images/pc-2ciyuan/3-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/3-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "河面上的最后一束光",
-      "date": "2026-09-23",
-      "description": "桥与水面一起收下了晚霞。",
+      },
+          {
+      "title": "樱花",
+      "date": "2026-10-02",
+      "description": "樱花",
       "categories": [
-        "生活点滴"
+        "电脑壁纸"
       ],
       "tags": [
-        "城市",
-        "黄昏"
+        "樱花",
       ],
-      "location": "河畔",
-      "id": "river",
+      "location": "樱花",
+      "id": "cherryblossom",
       "photos": [
         {
-          "alt": "紫色日落下的宽阔河流和桥梁剪影",
-          "caption": "桥与水面一起收下了晚霞。",
-          "id": "river-1",
-          "src": "/images/demo/river-1.webp",
-          "thumb": "/images/demo/river-1-thumb.webp",
+          "alt": "樱花",
+          "caption": "樱花。",
+          "id": "cherryblossom-1",
+          "src": "/images/pc-2ciyuan/4-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/4-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "灯塔等候的蓝色时刻",
-      "date": "2026-09-21",
-      "description": "海风越过草坡，远处的灯火刚刚亮起。",
+      },
+          {
+      "title": "二次元",
+      "date": "2026-10-02",
+      "description": "二次元",
       "categories": [
-        "旅行日记"
+        "电脑壁纸"
       ],
       "tags": [
-        "海岸",
-        "黄昏"
+        "二次元",
       ],
-      "location": "北方海岸 · 示意位置",
-      "id": "coast",
+      "location": "二次元",
+      "id": "2d",
       "photos": [
         {
-          "alt": "蓝色时刻的海岸、草坡与远方灯塔",
-          "caption": "天色尚未全暗，浪花留下最后一层银白。",
-          "camera": "lumolog 示例相机",
-          "lens": "35 mm 定焦",
-          "aperture": "2.8",
-          "shutter": "1/125",
-          "iso": "400",
-          "lat": 55.2,
-          "lon": -6.2,
-          "id": "coast-1",
-          "src": "/images/demo/coast-1.webp",
-          "thumb": "/images/demo/coast-1-thumb.webp",
+          "alt": "二次元",
+          "caption": "二次元。",
+          "id": "2d-1",
+          "src": "/images/pc-2ciyuan/5-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/5-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
-          }
-        },
-        {
-          "alt": "海岸步道与远处的灯塔",
-          "caption": "沿着海岸再走一程，灯塔就近了。",
-          "location": "北方海岸 · 示意位置",
-          "lat": 55.2,
-          "lon": -6.2,
-          "id": "coast-2",
-          "src": "/images/demo/coast-2.webp",
-          "thumb": "/images/demo/coast-2-thumb.webp",
-          "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "雨天的一杯咖啡",
-      "date": "2026-09-18",
-      "description": "玻璃上有雨，杯里还有一点温度。",
+      }, 
+          {
+      "title": "汉堡",
+      "date": "2026-10-02",
+      "description": "汉堡",
       "categories": [
-        "生活点滴"
+        "电脑壁纸"
       ],
       "tags": [
-        "城市",
-        "雨天"
+        "汉堡",
       ],
-      "location": "街角咖啡馆",
-      "id": "cafe",
+      "location": "比奇堡",
+      "id": "biqibao",
       "photos": [
         {
-          "alt": "雨窗旁木桌上的一杯咖啡",
-          "caption": "玻璃上有雨，杯里还有一点温度。",
-          "id": "cafe-1",
-          "src": "/images/demo/cafe-1.webp",
-          "thumb": "/images/demo/cafe-1-thumb.webp",
+          "alt": "汉堡",
+          "caption": "汉堡。",
+          "id": "biqibao-1",
+          "src": "/images/pc-2ciyuan/6-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/6-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "雨夜，末班电车",
-      "date": "2026-09-12",
-      "description": "车窗里是暖光，街道把它们延长成一条河。",
+      },
+          {
+      "title": "蜡笔小新",
+      "date": "2026-10-02",
+      "description": "蜡笔小新",
       "categories": [
-        "生活点滴"
+        "电脑壁纸"
       ],
       "tags": [
-        "城市",
-        "夜色"
+        "蜡笔小新",
       ],
-      "location": "想象中的旧城",
-      "id": "tram",
+      "location": "树下",
+      "id": "kemal",
       "photos": [
         {
-          "alt": "雨夜街道上的黄色电车与暖色路灯",
-          "caption": "雨停之前，整座城市都是一张底片。",
-          "camera": "lumolog 示例相机",
-          "focal_length": "50 mm",
-          "aperture": "1.8",
-          "shutter": "1/60",
-          "iso": "800",
-          "id": "tram-1",
-          "src": "/images/demo/tram-1.webp",
-          "thumb": "/images/demo/tram-1-thumb.webp",
+          "alt": "蜡笔小新",
+          "caption": "蜡笔小新。",
+          "id": "kemal-1",
+          "src": "/images/pc-2ciyuan/7-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/7-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "窗边的新邻居",
-      "date": "2026-09-01",
-      "description": "它好奇地看了我一眼，又转向窗外。",
+      }, 
+          {
+      "title": "小猫",
+      "date": "2026-10-02",
+      "description": "小猫",
       "categories": [
-        "生活点滴"
+        "电脑壁纸"
       ],
       "tags": [
-        "猫咪",
-        "晨光"
+        "小猫",
       ],
-      "location": "街区窗边",
-      "id": "cat",
+      "location": "草地",
+      "id": "cat-1",
       "photos": [
         {
-          "alt": "晨光里探出窗边的虎斑猫",
-          "caption": "它好奇地看了我一眼，又转向窗外。",
+          "alt": "小猫",
+          "caption": "小猫。",
           "id": "cat-1",
-          "src": "/images/demo/cat-1.webp",
-          "thumb": "/images/demo/cat-1-thumb.webp",
+          "src": "/images/pc-2ciyuan/8-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/8-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "盐湖与山的清晨",
-      "date": "2026-08-28",
-      "description": "大地很安静，山色在日出里慢慢变浅。",
+      }, 
+          {
+      "title": "四合院樱花",
+      "date": "2026-10-02",
+      "description": "四合院樱花",
       "categories": [
-        "旅行日记"
+        "电脑壁纸"
       ],
       "tags": [
-        "山野",
-        "晨光"
+        "四合院樱花",
       ],
-      "location": "盐湖山脉 · 示意位置",
-      "id": "desert",
+      "location": "四合院",
+      "id": "siheyuan",
       "photos": [
         {
-          "alt": "粉色日出照亮盐湖与层叠山脉",
-          "caption": "镜面一样的湖，收下了整片天空。",
-          "camera": "lumolog 示例相机",
-          "lat": 40.5,
-          "lon": -117.5,
-          "id": "desert-1",
-          "src": "/images/demo/desert-1.webp",
-          "thumb": "/images/demo/desert-1-thumb.webp",
+          "alt": "四合院樱花",
+          "caption": "四合院樱花。",
+          "id": "siheyuan-1",
+          "src": "/images/pc-2ciyuan/9-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/9-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "红色单车与雨后小巷",
-      "date": "2026-08-20",
-      "description": "街道刚被雨洗过，墙边的红色格外醒目。",
+      },
+          {
+      "title": "牧羊人",
+      "date": "2026-10-02",
+      "description": "牧羊人",
       "categories": [
-        "生活点滴"
+        "电脑壁纸"
       ],
       "tags": [
-        "城市",
-        "雨天"
+        "牧羊人",
       ],
-      "location": "旧街区",
-      "id": "bicycle",
+      "location": "草地",
+      "id": "muyangren",
       "photos": [
         {
-          "alt": "雨后小巷白墙旁的红色自行车",
-          "caption": "街道刚被雨洗过，墙边的红色格外醒目。",
-          "id": "bicycle-1",
-          "src": "/images/demo/bicycle-1.webp",
-          "thumb": "/images/demo/bicycle-1-thumb.webp",
+          "alt": "牧羊人",
+          "caption": "牧羊人。",
+          "id": "muyangren-1",
+          "src": "/images/pc-2ciyuan/10-piclite.jpg",
+          "thumb": "/images/pc-2ciyuan/10-piclite.jpg",
           "credit": {
-            "name": "lumolog 原创生成影像"
+            "name": "哲风壁纸"
           }
         }
       ]
-    },
-    {
-      "title": "走进雨后的森林",
-      "date": "2026-08-10",
-      "description": "雾气仍在树间，阳光先找到了小路。",
-      "categories": [
-        "旅行日记"
-      ],
-      "tags": [
-        "森林",
-        "晨光"
-      ],
-      "location": "林间步道",
-      "id": "forest",
-      "photos": [
-        {
-          "alt": "雨后的针叶林与晨光中的蜿蜒小路",
-          "caption": "再往前走一点，就能听见山谷醒来。",
-          "id": "forest-1",
-          "src": "/images/demo/forest-1.webp",
-          "thumb": "/images/demo/forest-1-thumb.webp",
-          "credit": {
-            "name": "lumolog 原创生成影像"
-          }
-        }
-      ]
-    },
-    {
-      "title": "渔村亮灯时",
-      "date": "2026-08-05",
-      "description": "海边的晚风，慢慢带来了灯光。",
-      "categories": [
-        "旅行日记"
-      ],
-      "tags": [
-        "海岸",
-        "夜色"
-      ],
-      "location": "海边渔村",
-      "id": "village",
-      "photos": [
-        {
-          "alt": "蓝色时刻的渔村石板路、渔船与暖色窗灯",
-          "caption": "海边的晚风，慢慢带来了灯光。",
-          "id": "village-1",
-          "src": "/images/demo/village-1.webp",
-          "thumb": "/images/demo/village-1-thumb.webp",
-          "credit": {
-            "name": "lumolog 原创生成影像"
-          }
-        }
-      ]
-    },
-    {
-      "title": "穿过晨雾的草甸",
-      "date": "2026-07-29",
-      "description": "山路在草地中弯向更远的地方。",
-      "categories": [
-        "旅行日记"
-      ],
-      "tags": [
-        "山野",
-        "晨光"
-      ],
-      "location": "高山草甸",
-      "id": "alpine",
-      "photos": [
-        {
-          "alt": "晨雾和阳光中的高山草甸与小路",
-          "caption": "山路在草地中弯向更远的地方。",
-          "id": "alpine-1",
-          "src": "/images/demo/alpine-1.webp",
-          "thumb": "/images/demo/alpine-1-thumb.webp",
-          "credit": {
-            "name": "lumolog 原创生成影像"
-          }
-        }
-      ]
-    },
-    {
-      "title": "沿着海岸往前走",
-      "date": "2026-07-10",
-      "description": "这条小路通向风里，也通向灯塔。",
-      "categories": [
-        "旅行日记"
-      ],
-      "tags": [
-        "海岸",
-        "黄昏"
-      ],
-      "location": "北方海岸",
-      "id": "coast-path",
-      "photos": [
-        {
-          "alt": "海岸步道与远处灯塔",
-          "caption": "风吹过草坡，远处有一盏灯。",
-          "id": "coast-path-1",
-          "src": "/images/demo/coast-path-1.webp",
-          "thumb": "/images/demo/coast-path-1-thumb.webp",
-          "credit": {
-            "name": "lumolog 原创生成影像"
-          }
-        }
-      ]
-    }
-  ]
+    },            
+    ],
 };
 
 export default data;

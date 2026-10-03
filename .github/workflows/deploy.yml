@@ -1,0 +1,71 @@
+name: Deploy to EdgeOne
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# 最低权限：仅读取仓库内容。构建与部署由 edgeone makers CLI 完成。
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      # 构建期变量：next.config.ts 在构建时读 IMAGE_REMOTE_ORIGINS 生成 images.remotePatterns
+      IMAGE_REMOTE_ORIGINS: ${{ secrets.IMAGE_REMOTE_ORIGINS }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint & test
+        run: |
+          npm run lint
+          npm run test
+
+      - name: Build (next build -> .next)
+        run: npm run build
+
+      - name: Deploy to EdgeOne Makers (auto-creates project if missing)
+        run: |
+          npx edgeone makers deploy \
+            -n kemiao-gallery \
+            -t "$EDGEONE_API_TOKEN" \
+            --json
+        env:
+          EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
+
+      - name: Write runtime environment variables to project (production)
+        # 运行时变量通过 EdgeOne 项目环境变量注入；
+        # 仅在对应的 GitHub Secret 已配置时才写入（空值跳过）。
+        run: |
+          set -u
+          set_env() {
+            local key="$1"
+            local value="${!key:-}"
+            if [ -n "$value" ]; then
+              echo "Setting $key in production environment"
+              npx edgeone makers env set "$key" "$value" \
+                -t "$EDGEONE_API_TOKEN" -e production >/dev/null
+            else
+              echo "Skipping $key (secret not configured)"
+            fi
+          }
+          set_env GALLERY_JSON_URL
+          set_env IMAGE_REMOTE_ORIGINS
+          set_env SITE_URL
+        env:
+          EDGEONE_API_TOKEN: ${{ secrets.EDGEONE_API_TOKEN }}
+          GALLERY_JSON_URL: ${{ secrets.GALLERY_JSON_URL }}
+          IMAGE_REMOTE_ORIGINS: ${{ secrets.IMAGE_REMOTE_ORIGINS }}
+          SITE_URL: ${{ secrets.SITE_URL }}

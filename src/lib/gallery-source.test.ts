@@ -27,7 +27,7 @@ describe('gallery source', () => {
   it('reads updated remote JSON on the next request', async () => {
     vi.stubEnv('GALLERY_JSON_URL', 'https://example.com/gallery.json');
     const first = { ...localData, albums: [localData.albums[0]] };
-    const second = { ...localData, albums: [localData.albums[1]] };
+    const second = { ...localData, albums: [{ ...localData.albums[0], id: 'updated-sample' }] };
     const fetchImage = vi.spyOn(globalThis, 'fetch')
       .mockResolvedValueOnce(Response.json(first))
       .mockResolvedValueOnce(Response.json(second));

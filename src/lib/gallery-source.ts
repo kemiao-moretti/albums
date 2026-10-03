@@ -29,7 +29,19 @@ async function readLimited(response: Response): Promise<string> {
   } finally {
     await reader.cancel().catch(() => {});
   }
-  return new TextDecoder('utf-8', { fatal: true }).decode(Buffer.concat(chunks));
+  return new TextDecoder('utf-8', { fatal: true }).decode(concatBytes(chunks));
+}
+
+// 纯 Web 标准实现：把分块的 Uint8Array 合并为单个 Uint8Array（不依赖 Node 的 Buffer）。
+function concatBytes(chunks: Uint8Array[]): Uint8Array {
+  const total = chunks.reduce((sum, chunk) => sum + chunk.byteLength, 0);
+  const merged = new Uint8Array(total);
+  let offset = 0;
+  for (const chunk of chunks) {
+    merged.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return merged;
 }
 
 async function loadGallery(): Promise<Gallery> {
