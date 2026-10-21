@@ -1,5 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "nodeVersion": "24.18.0"
+  "nodeVersion": "24.11.0"
 }
