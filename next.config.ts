@@ -3,7 +3,6 @@ import { remoteImageOrigins } from './src/lib/image-origins';
 
 const config: NextConfig = {
   reactStrictMode: true,
-  trailingSlash: true,
   images: {
     remotePatterns: remoteImageOrigins().map(origin => ({
       protocol: 'https',

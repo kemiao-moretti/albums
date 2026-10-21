@@ -52,10 +52,10 @@ export function SiteHeader({ categories }: { categories: string[] }) {
       <div className="nav-dropdown" onMouseEnter={() => { if (matchMedia('(hover: hover)').matches) setOpen(true); }} onMouseLeave={() => { if (matchMedia('(hover: hover)').matches) setOpen(false); }} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }}>
         <button className="nav-dropdown-trigger" type="button" aria-expanded={open} aria-controls="category-menu" data-active={inCategories || pathname.startsWith('/tags') ? true : undefined} onClick={() => setOpen(value => matchMedia('(hover: hover) and (pointer: fine)').matches ? true : !value)}>分类</button>
         {open && <div className="nav-menu" id="category-menu"><div className="nav-menu-inner">
-          <Link href="/" aria-current={isCurrent('/') || isCurrent('/photos/') ? 'page' : undefined} onClick={() => setOpen(false)}>全部作品</Link>
-          <Link href="/categories/" aria-current={isCurrent('/categories/') ? 'page' : undefined} onClick={() => setOpen(false)}>分类总览</Link>
+          <Link href="/" aria-current={isCurrent('/') || isCurrent('/photos') ? 'page' : undefined} onClick={() => setOpen(false)}>全部作品</Link>
+          <Link href="/categories" aria-current={isCurrent('/categories') ? 'page' : undefined} onClick={() => setOpen(false)}>分类总览</Link>
           {categories.map(name => <Link key={name} href={termUrl('categories', name)} aria-current={isCurrent(termUrl('categories', name)) ? 'page' : undefined} onClick={() => setOpen(false)}>{name}</Link>)}
-          <Link href="/tags/" aria-current={isCurrent('/tags/') ? 'page' : undefined} onClick={() => setOpen(false)}>标签</Link>
+          <Link href="/tags" aria-current={isCurrent('/tags') ? 'page' : undefined} onClick={() => setOpen(false)}>标签</Link>
         </div></div>}
       </div>
       {fullscreenSupported && <button className="nav-fullscreen" type="button" aria-label={fullscreen ? '退出全屏' : '切换全屏'} title={fullscreen ? '退出全屏' : '切换全屏'} onClick={toggleFullscreen}><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" /></svg></button>}

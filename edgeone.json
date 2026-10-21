@@ -2,5 +2,13 @@
   "installCommand": "npm install",
   "buildCommand": "npm run build",
   "outputDirectory": ".next",
-  "nodeVersion": "24.11.0"
+  "nodeVersion": "24.11.0",
+  "redirects": [
+    { "source": "/photos/", "destination": "/photos", "statusCode": 301 },
+    { "source": "/categories/", "destination": "/categories", "statusCode": 301 },
+    { "source": "/tags/", "destination": "/tags", "statusCode": 301 },
+    { "source": "/categories/:slug/", "destination": "/categories/:slug", "statusCode": 301 },
+    { "source": "/tags/:slug/", "destination": "/tags/:slug", "statusCode": 301 },
+    { "source": "/page/:number/", "destination": "/page/:number", "statusCode": 301 }
+  ]
 }

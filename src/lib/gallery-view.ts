@@ -33,5 +33,5 @@ export function pageOf(albums: Album[], page: number) {
 }
 
 export function termUrl(kind: 'categories' | 'tags', name: string) {
-  return `/${kind}/${encodeURIComponent(name)}/`;
+  return `/${kind}/${encodeURIComponent(name)}`;
 }

@@ -9,9 +9,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const gallery = await getGallery();
   return [
     { url: `${base}/`, lastModified: new Date() },
-    { url: `${base}/photos/`, lastModified: new Date() },
-    { url: `${base}/categories/`, lastModified: new Date() },
-    { url: `${base}/tags/`, lastModified: new Date() },
+    { url: `${base}/photos`, lastModified: new Date() },
+    { url: `${base}/categories`, lastModified: new Date() },
+    { url: `${base}/tags`, lastModified: new Date() },
     ...termsFor(gallery, 'categories').map(term => ({ url: `${base}${termUrl('categories', term.name)}`, lastModified: new Date(term.albums[0].date) })),
     ...termsFor(gallery, 'tags').map(term => ({ url: `${base}${termUrl('tags', term.name)}`, lastModified: new Date(term.albums[0].date) })),
   ];
