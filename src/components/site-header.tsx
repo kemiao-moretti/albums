@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { termUrl } from '@/lib/gallery-view';
 import { siteConfig } from '../../config';
+import InstallButton from './install-button';
 
 export function SiteHeader({ categories }: { categories: string[] }) {
   const pathname = usePathname();
@@ -58,6 +59,7 @@ export function SiteHeader({ categories }: { categories: string[] }) {
         </div></div>}
       </div>
       {fullscreenSupported && <button className="nav-fullscreen" type="button" aria-label={fullscreen ? '退出全屏' : '切换全屏'} title={fullscreen ? '退出全屏' : '切换全屏'} onClick={toggleFullscreen}><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4H4v5m11-5h5v5M4 15v5h5m11-5v5h-5" /></svg></button>}
+      <InstallButton />
     </nav>
   </header>;
 }

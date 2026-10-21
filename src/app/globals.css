@@ -66,6 +66,15 @@ main { min-height: 100vh; padding-bottom: calc(var(--bar) + env(safe-area-inset-
 }
 .nav-fullscreen { width: 44px; padding: 0 !important; }
 .nav-fullscreen svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav-install-wrap { position: relative; display: inline-flex; }
+.nav-install { width: 44px; padding: 0 !important; }
+.nav-install svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.nav-install-hint {
+  position: absolute; bottom: calc(100% + 10px); right: -4px; width: max-content; max-width: min(78vw, 320px);
+  padding: 10px 13px; border: 1px solid var(--glass-border); border-radius: 12px;
+  background: var(--glass-solid); box-shadow: var(--glass-shadow);
+  color: var(--text); font-size: 12px; line-height: 1.5;
+}
 .nav-dropdown { position: relative; }
 .nav-menu { position: absolute; bottom: 100%; right: -4px; min-width: 176px; padding-bottom: 10px; }
 .nav-menu-inner {
